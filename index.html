@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌊 Busan 6 Days ✈️ 2026</title>
+    <style>
+        :root {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --accent: #2a9d8f;
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --text: #333333;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 15px; }
+        .container { max-width: 650px; margin: 0 auto; }
+        header { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 20px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { margin: 0 0 5px 0; font-size: 22px; }
+        p { margin: 0; font-size: 13px; opacity: 0.9; }
+        
+        /* Tabs */
+        .tabs { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; margin-bottom: 15px; }
+        .tab-btn { background: #e0e0e0; border: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; white-space: nowrap; font-size: 14px; color: #555; transition: all 0.2s; }
+        .tab-btn.active { background: var(--primary); color: white; }
+
+        .card { background: var(--card-bg); padding: 20px; border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: none; }
+        .card.active { display: block; }
+        
+        h3 { margin-top: 0; color: var(--primary); font-size: 17px; border-bottom: 2px solid #eee; padding-bottom: 8px; }
+        .time-slot { margin: 12px 0; padding-left: 10px; border-left: 3px solid var(--secondary); }
+        .time-slot b { color: #222; }
+        
+        .progress-bar { background: #e0e0e0; border-radius: 4px; height: 10px; width: 100%; overflow: hidden; margin-top: 10px; margin-bottom: 15px; }
+        .progress-fill { background: var(--accent); height: 100%; width: 0%; transition: width 0.3s; }
+        
+        label { display: block; margin-bottom: 8px; cursor: pointer; font-size: 14px; line-height: 1.4; }
+        input[type="checkbox"] { margin-right: 8px; transform: scale(1.1); vertical-align: middle; }
+        
+        .map-img { width: 100%; border-radius: 8px; margin-top: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); cursor: pointer; }
+        .note { font-size: 12px; color: #666; background: #f9f9f9; padding: 8px; border-radius: 6px; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌊 Busan 6 Days ✈️ 2026/10/1 - 10/6</h1>
+            <p>地址完整版・多選店家・交通估價・一鍵導航・樂天世界地圖</p>
+        </header>
+
+        <!-- Day Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab('prep')">🎒 準備</button>
+            <button class="tab-btn" onclick="switchTab('day1')">10/1 Day1</button>
+            <button class="tab-btn" onclick="switchTab('day2')">10/2 Day2</button>
+            <button class="tab-btn" onclick="switchTab('day3')">10/3 Day3</button>
+            <button class="tab-btn" onclick="switchTab('day4')">10/4 Day4⭐</button>
+            <button class="tab-btn" onclick="switchTab('day5')">10/5 Day5</button>
+            <button class="tab-btn" onclick="switchTab('day6')">10/6 Day6</button>
+        </div>
+
+        <!-- Prep Tab -->
+        <div id="prep" class="card active">
+            <h3>🎒 出發前快速檢查 (<span id="progress-text">0/6</span>)</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <label><input type="checkbox" class="task-checkbox" onchange="updateProgress()"> 🪪 護照、電子機票、住宿資訊；10/2 特別多帶一套衣服。</label>
+            <label><input type="checkbox" class="task-checkbox" onchange="updateProgress()"> 💳 Visit Busan Pass：10/1 抵達後到金海機場國際航廈 1F 旅遊諮詢處取實體卡。</label>
+            <label><input type="checkbox" class="task-checkbox" onchange="updateProgress()"> 🚇 地鐵：成人交通卡 1區間 ₩1,600、2區間 ₩1,800；QR 單程票各加 ₩100。</label>
+            <label><input type="checkbox" class="task-checkbox" onchange="updateProgress()"> 🚕 計程車：一般計程車基本費約 ₩4,800；車資為行程規劃用估算。</label>
+            <label><input type="checkbox" class="task-checkbox" onchange="updateProgress()"> 💱 換算：暫以 1 KRW ≈ NT$0.0234 計算；實際依當日匯率。</label>
+            <label><input type="checkbox" class="task-checkbox" onchange="updateProgress()"> ☔ 備案：纜車、海岸列車、無人機秀受天候與現場營運影響，出發前再確認。</label>
+        </div>
+
+        <!-- Day 1 -->
+        <div id="day1" class="card">
+            <h3>✈️ 10/1 (四) 抵達釜山 ➡️ 市區</h3>
+            <div class="time-slot"><b>12:00</b> 桃園機場搭機出發 -> 金海機場</div>
+            <div class="time-slot"><b>15:30</b> 抵達金海機場，領取 Visit Busan Pass</div>
+            <div class="time-slot"><b>17:00</b> 入住飯店，展開釜山之旅！</div>
+        </div>
+
+        <!-- Day 2 -->
+        <div id="day2" class="card">
+            <h3>🏙️ 10/2 (五) 釜山經典景點漫遊</h3>
+            <div class="time-slot"><b>09:30</b> 海雲台藍線公園 (Blueline Park) 海岸列車</div>
+            <div class="time-slot"><b>13:00</b> 午餐：密陽血腸豬肉湯飯</div>
+            <div class="time-slot"><b>15:00</b> 廣安里海水浴場欣賞無人機燈光秀</div>
+        </div>
+
+        <!-- Day 3 -->
+        <div id="day3" class="card">
+            <h3>🌊 10/3 (六) 影島與文化村</h3>
+            <div class="time-slot"><b>10:00</b> 白淺灘文化村海邊散步</div>
+            <div class="time-slot"><b>13:00</b> 影島海景咖啡廳下午茶</div>
+            <div class="time-slot"><b>17:00</b> 南浦洞商圈晚餐與購物</div>
+        </div>
+
+        <!-- Day 4 (10/4) - Lotte World requested -->
+        <div id="day4" class="card">
+            <h3>🎢 10/4 (日) 樂天世界與東釜山</h3>
+            <div class="time-slot"><b>09:30</b> 前往機張東釜山區域</div>
+            <div class="time-slot"><b>12:00</b> <b>樂天世界冒險樂園 (Lotte World Adventure Busan)</b>
+                <div class="note">已載入園區完整地圖，點擊圖片可放大檢視設施與動線：</div>
+                <a href="images/lotte.jpg" target="_blank">
+                    <img src="images/lotte.jpg" alt="樂天世界地圖" class="map-img">
+                </a>
+            </div>
+            <div class="time-slot"><b>18:00</b> 晚餐：樂天 Outlet 附近美食</div>
+        </div>
+
+        <!-- Day 5 -->
+        <div id="day5" class="card">
+            <h3>🛍️ 10/5 (一) 西面購物與悠閒時光</h3>
+            <div class="time-slot"><b>10:30</b> 西面地下街血拼</div>
+            <div class="time-slot"><b>14:00</b> 田浦咖啡街下午茶</div>
+            <div class="time-slot"><b>19:00</b> 烤牛腸晚餐</div>
+        </div>
+
+        <!-- Day 6 -->
+        <div id="day6" class="card">
+            <h3>home 10/6 (二) 戰利品收尾 ➡️ 賦歸</h3>
+            <div class="time-slot"><b>10:00</b> 飯店退房與最後採買</div>
+            <div class="time-slot"><b>14:00</b> 前往金海機場</div>
+            <div class="time-slot"><b>17:00</b> 搭機返回台灣</div>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(tabId) {
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.task-checkbox');
+            const total = checkboxes.length;
+            let checkedCount = 0;
+            checkboxes.forEach(box => { if (box.checked) checkedCount++; });
+            document.getElementById('progress-text').innerText = checkedCount + '/' + total;
+            document.getElementById('progress-fill').style.width = (checkedCount / total) * 100 + '%';
+        }
+    </script>
+</body>
+</html>
